@@ -1,0 +1,16 @@
+<odoo>
+  <data>
+    <record id="product_template_form_views" model="ir.ui.view">
+            <field name="name">crm.lead.form.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="priority">5</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='%(crm.action_crm_lead2opportunity_partner)d']" position="replace">
+                    <button name="%(crm.action_crm_lead2opportunity_partner)d" string="My Button" type="action" help="Convert to Opportunity"
+                            class="oe_highlight" attrs="{'invisible': ['|', ('type', '=', 'opportunity'), ('active', '=', False)]}"/>
+                </xpath>
+            </field>
+    </record>
+  </data>
+</odoo>
